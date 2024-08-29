@@ -1,0 +1,26 @@
+# directories
+coverage-report/
+node_modules/
+.sass-cache/
+log/
+vendor/
+local-site/
+tmp/
+!vendor/autoload.php
+!vendor/haydenpierce/
+
+# build tools lock
+yarn.lock
+package-lock.json
+
+# IDE's
+.project/
+.vscode/
+.idea/
+
+# other
+Thumbs.db
+*.DS_Store
+coverage/
+.zimud.json
+.phpunit.result.cache

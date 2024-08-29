@@ -1,0 +1,23 @@
+/**
+ * Dubco - Admin only styles
+ * https://project-website.tld
+ *
+ */
+.dubco-short-link {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	margin-bottom: 10px;
+
+	& button {
+		margin-left: 10px;
+		height: 32px;
+	}
+}
+
+.dubco-creat-link {
+
+	& button {
+		margin-bottom: 10px;
+	}
+}
