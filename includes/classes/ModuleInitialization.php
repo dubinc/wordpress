@@ -17,6 +17,7 @@ use ReflectionClass;
  */
 class ModuleInitialization {
 
+
 	/**
 	 * The class instance.
 	 *

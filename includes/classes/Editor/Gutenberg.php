@@ -7,6 +7,7 @@ use Dubco\Module;
 
 class Gutenberg extends Module {
 
+
 	/**
 	 * @inheritDoc
 	 */
@@ -51,15 +52,19 @@ class Gutenberg extends Module {
 		];
 
 		foreach ( $metafields as $metafield ) {
-			register_post_meta( '', $metafield, [
-				'show_in_rest' => true,
-				'type' => 'string',
-				'single' => true,
-				'sanitize_callback' => 'sanitize_text_field',
-				'auth_callback' => function () {
-					return current_user_can( 'edit_posts' );
-				},
-			] );
+			register_post_meta(
+				'',
+				$metafield,
+				[
+					'show_in_rest'      => true,
+					'type'              => 'string',
+					'single'            => true,
+					'sanitize_callback' => 'sanitize_text_field',
+					'auth_callback'     => function () {
+						return current_user_can( 'edit_posts' );
+					},
+				]
+			);
 		}
 	}
 }

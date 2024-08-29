@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 
-export default function AnalitycsLink({ shortLink, workspaceSlug }) {
+const AnalitycsLink = ({ shortLink, workspaceSlug }) => {
 	let domain;
 	let key;
 	try {
@@ -24,4 +24,6 @@ export default function AnalitycsLink({ shortLink, workspaceSlug }) {
 			</p>
 		</div>
 	);
-}
+};
+
+export default AnalitycsLink;

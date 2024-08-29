@@ -5,6 +5,7 @@ namespace Dubco\Api;
 use Dubco\Admin\Settings;
 
 class ApiClient {
+
 	private $api_key;
 	private $base_url = 'https://api.dub.co';
 
@@ -24,19 +25,22 @@ class ApiClient {
 	public function request( $method, $endpoint, $data = [] ) {
 		$url     = $this->base_url . $endpoint;
 		$headers = [
-			'Authorization' =>  'Bearer ' . $this->api_key,
-			'Content-Type' =>  'application/json',
+			'Authorization' => 'Bearer ' . $this->api_key,
+			'Content-Type'  => 'application/json',
 		];
 
 		return $this->make_request( $method, $url, $headers, $data );
 	}
 
 	private function make_request( $method, $url, $headers, $data ) {
-		$response = wp_remote_request( $url, [
-			'method'  => $method,
-			'headers' => $headers,
-			'body'    => json_encode( $data ),
-		] );
+		$response = wp_remote_request(
+			$url,
+			[
+				'method'  => $method,
+				'headers' => $headers,
+				'body'    => wp_json_encode( $data ),
+			]
+		);
 
 		if ( is_wp_error( $response ) ) {
 			return [
@@ -49,7 +53,7 @@ class ApiClient {
 
 		return [
 			'status_code' => wp_remote_retrieve_response_code( $response ),
-			'body'        => json_decode( wp_remote_retrieve_body( $response ) ),
+			'body'        => wp_json_encode( wp_remote_retrieve_body( $response ) ),
 		];
 	}
 }

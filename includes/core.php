@@ -109,7 +109,7 @@ function get_enqueue_contexts() {
 /**
  * Generate an URL to a script, taking into account whether SCRIPT_DEBUG is enabled.
  *
- * @param string $script Script file name (no .js extension)
+ * @param string $script  Script file name (no .js extension)
  * @param string $context Context for the script ('admin', 'frontend', or 'shared')
  *
  * @return string|WP_Error URL
@@ -127,7 +127,7 @@ function script_url( $script, $context ) {
  * Generate an URL to a stylesheet, taking into account whether SCRIPT_DEBUG is enabled.
  *
  * @param string $stylesheet Stylesheet file name (no .css extension)
- * @param string $context Context for the script ('admin', 'frontend', or 'shared')
+ * @param string $context    Context for the script ('admin', 'frontend', or 'shared')
  *
  * @return string URL
  */
@@ -168,9 +168,7 @@ function scripts() {
 		'https://www.dubcdn.com/analytics/script.js',
 		[],
 		DUBCO_PLUGIN_VERSION,
-
 	);
-
 }
 
 /**
@@ -253,7 +251,7 @@ function admin_styles() {
 /**
  * Enqueue editor styles. Filters the comma-delimited list of stylesheets to load in TinyMCE.
  *
- * @param string $stylesheets Comma-delimited list of stylesheets.
+ * @param  string $stylesheets Comma-delimited list of stylesheets.
  * @return string
  */
 function mce_css( $stylesheets ) {
@@ -262,16 +260,16 @@ function mce_css( $stylesheets ) {
 	}
 
 	return $stylesheets . DUBCO_PLUGIN_URL . ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ?
-			'assets/css/frontend/editor-style.css' :
-			'dist/css/editor-style.min.css' );
+	'assets/css/frontend/editor-style.css' :
+	'dist/css/editor-style.min.css' );
 }
 
 /**
  * Add async/defer attributes to enqueued scripts that have the specified script_execution flag.
  *
- * @link https://core.trac.wordpress.org/ticket/12009
- * @param string $tag    The script tag.
- * @param string $handle The script handle.
+ * @link   https://core.trac.wordpress.org/ticket/12009
+ * @param  string $tag    The script tag.
+ * @param  string $handle The script handle.
  * @return string
  */
 function script_loader_tag( $tag, $handle ) {
@@ -282,7 +280,7 @@ function script_loader_tag( $tag, $handle ) {
 	}
 
 	if ( 'async' !== $script_execution && 'defer' !== $script_execution ) {
-		return $tag; // _doing_it_wrong()?
+		return $tag;
 	}
 
 	// Abort adding async/defer for scripts that have this script as a dependency. _doing_it_wrong()?

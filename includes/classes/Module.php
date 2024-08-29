@@ -12,6 +12,7 @@ namespace Dubco;
  */
 abstract class Module {
 
+
 	/**
 	 * Used to alter the order in which clases are initialized.
 	 *

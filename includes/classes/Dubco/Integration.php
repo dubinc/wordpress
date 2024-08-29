@@ -9,16 +9,16 @@ use Dubco\Module;
 
 class Integration extends Module {
 
-	static public function update_meta_from_response( $post_id, $response ) {
+	public static function update_meta_from_response( $post_id, $response ) {
 		update_post_meta( $post_id, '_dubco_short_url', $response['body']->shortLink );
 		update_post_meta( $post_id, '_dubco_short_url_id', $response['body']->id );
 		update_post_meta( $post_id, '_dubco_short_url_domain', $response['body']->domain );
 
 		$workspaces = get_option( 'dubco_workspaces', [] );
 		if ( ! isset( $workspaces[ $response['body']->workspaceId ] ) ) {
-			$api_client                                   = ApiClient::get_instance();
-			$workspace_response                           = $api_client->request( 'GET', '/workspaces/' . $response['body']->workspaceId );
-			if ( $workspace_response['status_code'] !== 200 ) {
+			$api_client         = ApiClient::get_instance();
+			$workspace_response = $api_client->request( 'GET', '/workspaces/' . $response['body']->workspaceId );
+			if ( 200 !== $workspace_response['status_code'] ) {
 				return;
 			}
 			$workspaces[ $response['body']->workspaceId ] = $workspace_response['body'];
@@ -34,7 +34,7 @@ class Integration extends Module {
 	public function register() {
 		add_action(
 			'save_post',
-			function ( int $post_id, \WP_Post $post, bool $update ) {
+			function ( int $post_id, \WP_Post $post ) {
 				if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 					return;
 				}
@@ -43,7 +43,7 @@ class Integration extends Module {
 					return;
 				}
 
-				if ( ! in_array( $post->post_type, Settings::get_supported_post_types() ) ) {
+				if ( ! in_array( $post->post_type, Settings::get_supported_post_types(), true ) ) {
 					return;
 				}
 
@@ -53,9 +53,9 @@ class Integration extends Module {
 					$this->generate_short_url( $post_id );
 
 				}
-
 			},
-			10, 3
+			10,
+			2
 		);
 	}
 
@@ -63,11 +63,15 @@ class Integration extends Module {
 		update_post_meta( $post_id, '_dubco_short_url_error', '' );
 
 		$api_client = ApiClient::get_instance();
-		$response   = $api_client->request( 'POST', '/links', [
-			'url' => get_permalink( $post_id ),
-		] );
+		$response   = $api_client->request(
+			'POST',
+			'/links',
+			[
+				'url' => get_permalink( $post_id ),
+			]
+		);
 
-		if ( $response['status_code'] !== 200 ) {
+		if ( 200 !== $response['status_code'] ) {
 			update_post_meta( $post_id, '_dubco_short_url_error', $response['body']->error->message );
 
 			return [];

@@ -7,7 +7,7 @@
  * tags. Template tags typically use prefixing, as opposed
  * to Namespaces.
  *
- * @link https://developer.wordpress.org/themes/basics/template-tags/
+ * @link    https://developer.wordpress.org/themes/basics/template-tags/
  * @package Dubco
  */
 
@@ -16,15 +16,15 @@ namespace Dubco\Utility;
 /**
  * Get asset info from extracted asset files
  *
- * @param string $slug Asset slug as defined in build/webpack configuration
- * @param string $attribute Optional attribute to get. Can be version or dependencies
+ * @param  string $slug      Asset slug as defined in build/webpack configuration
+ * @param  string $attribute Optional attribute to get. Can be version or dependencies
  * @return string|array
  */
 function get_asset_info( $slug, $attribute = null ) {
 	if ( file_exists( DUBCO_PLUGIN_PATH . 'dist/js/' . $slug . '.asset.php' ) ) {
-		$asset = require DUBCO_PLUGIN_PATH . 'dist/js/' . $slug . '.asset.php';
+		$asset = include DUBCO_PLUGIN_PATH . 'dist/js/' . $slug . '.asset.php';
 	} elseif ( file_exists( DUBCO_PLUGIN_PATH . 'dist/css/' . $slug . '.asset.php' ) ) {
-		$asset = require DUBCO_PLUGIN_PATH . 'dist/css/' . $slug . '.asset.php';
+		$asset = include DUBCO_PLUGIN_PATH . 'dist/css/' . $slug . '.asset.php';
 	} else {
 		return null;
 	}

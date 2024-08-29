@@ -7,17 +7,24 @@ use WP_REST_Server;
 
 class User extends Module {
 
-	public function register() {
-		add_action( 'rest_api_init', function () {
-			register_rest_route( 'dubco/v1', '/user-info', [
-				'methods'             => WP_REST_Server::READABLE,
-				'callback'            => [ $this, 'get_dubco_user_info' ],
-				'permission_callback' => function () {
-					return current_user_can( 'edit_posts' );
-				},
-			] );
-		} );
 
+	public function register() {
+		add_action(
+			'rest_api_init',
+			function () {
+				register_rest_route(
+					'dubco/v1',
+					'/user-info',
+					[
+						'methods'             => WP_REST_Server::READABLE,
+						'callback'            => [ $this, 'get_dubco_user_info' ],
+						'permission_callback' => function () {
+							return current_user_can( 'edit_posts' );
+						},
+					]
+				);
+			}
+		);
 	}
 
 	public function get_dubco_user_info() {
