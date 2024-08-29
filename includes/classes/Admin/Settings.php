@@ -15,7 +15,12 @@ class Settings extends Module {
 	const API_KEY_OPTION = 'dubco_api_key';
 
 	public static function get_supported_post_types() {
-		return get_option( 'dubco_selected_post_types', [ 'post', 'page' ] );
+		$supported = get_option( 'dubco_selected_post_types', [ 'post', 'page' ] );
+		if ( ! is_array( $supported ) ) {
+			$supported = [ 'post', 'page' ];
+		}
+
+		return $supported;
 	}
 
 	public static function get_api_key() {
