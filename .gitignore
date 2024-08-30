@@ -6,8 +6,8 @@ log/
 vendor/
 local-site/
 tmp/
-!vendor/autoload.php
-!vendor/haydenpierce/
+!/vendor/autoload.php
+!/vendor/haydenpierce/
 
 # build tools lock
 yarn.lock
