@@ -138,8 +138,8 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 										if (response) {
 											setMetaFields({ _dubco_short_url: response.shortLink });
 										}
-									} catch (e) {
-										setError(e);
+									} catch (error) {
+										setError(error);
 									} finally {
 										setIsLoading(false);
 									}

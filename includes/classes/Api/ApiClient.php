@@ -53,7 +53,7 @@ class ApiClient {
 
 		return [
 			'status_code' => wp_remote_retrieve_response_code( $response ),
-			'body'        => wp_json_encode( wp_remote_retrieve_body( $response ) ),
+			'body'        => json_decode( wp_remote_retrieve_body( $response ) ),
 		];
 	}
 }

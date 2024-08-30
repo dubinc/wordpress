@@ -8,6 +8,8 @@
     "format-js": "10up-toolkit format-js",
     "lint-js": "10up-toolkit lint-js",
     "lint-style": "10up-toolkit lint-style",
+    "lint-php": "./vendor/bin/phpcs ./includes --standard=ruleset.xml",
+    "fix-php": "./vendor/bin/phpcbf ./includes --standard=ruleset.xml",
     "test": "10up-toolkit test-unit-jest",
     "clean-dist": "rm -rf ./dist"
   },
