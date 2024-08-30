@@ -160,7 +160,6 @@ function scripts() {
  * @return void
  */
 function admin_scripts() {
-
 }
 
 /**
@@ -170,7 +169,6 @@ function admin_scripts() {
  */
 function styles() {
 
-
 	if ( is_admin() ) {
 		wp_enqueue_style(
 			'dubco_plugin_admin',
@@ -178,7 +176,7 @@ function styles() {
 			[],
 			Utility\get_asset_info( 'admin', 'version' ),
 		);
-	} 
+	}
 }
 
 /**
