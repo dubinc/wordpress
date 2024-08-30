@@ -34,7 +34,7 @@ class Classic extends Module {
 	public function dubco_add_meta_box() {
 		add_meta_box(
 			'dubco_meta_box',
-			__( 'Dubco Short Link', 'dubco-plugin' ),
+			__( 'Dubco Short Link', 'dubinc' ),
 			[ $this, 'dubco_meta_box_callback' ],
 			null,
 			'side',
@@ -45,13 +45,39 @@ class Classic extends Module {
 		);
 	}
 
-	public function echho_short_link( $hidden ) {
+	public function echo_analitycs_link( $short_url, $workspace ): void {
+		if ( ! $short_url || ! $workspace ) {
+			return;
+		}
+		$domain   = wp_parse_url( $short_url, PHP_URL_HOST );
+		$pathname = ltrim( wp_parse_url( $short_url, PHP_URL_PATH ), '/' );
+
+		if ( ! $domain || ! $pathname ) {
+			return;
+		}
+
+		$href = "https://app.dub.co/{$workspace}/analytics?domain={$domain}&key={$pathname}&tab=clicks";
+		?>
+		<div class="dubco-analytics-link" style="height: 20px">
+			<p>
+				<a
+					href="<?php echo esc_url( $href ); ?>"
+					target="_blank"
+					rel="noopener noreferrer"
+					style="height: 20px"
+				>
+					<?php esc_html_e( 'Analytics for link', 'dubinc' ); ?>
+				</a>
+			</p>
+		</div>
+		<?php
 	}
 
 	public function dubco_meta_box_callback( $post ) {
 		wp_nonce_field( 'dubco_save_meta_box_data', 'dubco_meta_box_nonce' );
 		$short_url    = get_post_meta( $post->ID, '_dubco_short_url', true );
 		$short_url_id = get_post_meta( $post->ID, '_dubco_short_url_id', true );
+		$workspace    = get_post_meta( $post->ID, '_dubco_workspace_slug', true );
 		$pathname     = '';
 		if ( $short_url ) {
 			$pathname = ltrim( wp_parse_url( $short_url, PHP_URL_PATH ), '/' );
@@ -62,19 +88,20 @@ class Classic extends Module {
 				value="<?php echo esc_attr( $short_url_id ); ?>"/>
 			<div id="dubco-short-link" class="<?php if ( ! $short_url ) { echo 'hidden';} ?>">
 				<p>
-					<label for="dubco_short_url"><?php esc_html_e( 'Short URL:', 'dubco-plugin' ); ?></label>
+					<label for="dubco_short_url"><?php esc_html_e( 'Short URL:', 'dubinc' ); ?></label>
 					<input type="text" id="dubco_short_url" name="dubco_short_url"
 						value="<?php echo esc_attr( $short_url ); ?>" readonly/>
 					<input type="text" id="dubco_key" class="hidden"
 						value="<?php echo esc_attr( $pathname ); ?>" >
 				</p>
-				<button id="dubco_edit_button" class="button"><?php esc_html_e( 'Edit', 'dubco-plugin' ); ?></button>
-				<button id="dubco_update_button" class="button hidden"><?php esc_html_e( 'Update', 'dubco-plugin' ); ?></button>
+				<button id="dubco_edit_button" class="button"><?php esc_html_e( 'Edit', 'dubinc' ); ?></button>
+				<button id="dubco_update_button" class="button hidden"><?php esc_html_e( 'Update', 'dubinc' ); ?></button>
 			</div>
 			<button id="dubco_create_button" class="button <?php if ( $short_url ) { echo 'hidden';} ?>">
-				<?php esc_html_e( 'Create Short Link', 'dubco-plugin' ); ?>
+				<?php esc_html_e( 'Create Short Link', 'dubinc' ); ?>
 			</button>
-			<div id="dubco_error" class="hidden">text</div>
+			<?php $this->echo_analitycs_link( $short_url, $workspace ); ?>
+			<div id="dubco_error" class="hidden"></div>
 		</div>
 		<?php
 	}

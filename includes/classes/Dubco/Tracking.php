@@ -28,7 +28,7 @@ class Tracking extends Module {
 				'/track/lead',
 				[
 					'clickId'       => $cookie_value,
-					'customerId'    => $user_id,
+					'customerId'    => (string) $user_id,
 					'eventName'     => 'User Registration',
 					'customerEmail' => $user_data['user_email'] ?? '',
 					'customerName'  => $user_data['display_name'] ?? '',

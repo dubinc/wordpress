@@ -19,7 +19,7 @@ const AnalitycsLink = ({ shortLink, workspaceSlug }) => {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					{__('Analytics for link', 'dubco-plugin')}
+					{__('Analytics for link', 'dubinc')}
 				</a>
 			</p>
 		</div>

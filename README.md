@@ -1,6 +1,6 @@
 ## Dub Wordpress Plugin
 
-Contributors: 
+Contributors:
 Tags: tag1, tag2
 Requires at least: 4.7
 Tested up to: 5.4
@@ -13,9 +13,9 @@ Offical Wordpress integration for Dub. Create and manage your short links and tr
 
 ## Description
 
-This is the official Wordpress Integration for Dub. 
+This is the official Wordpress Integration for Dub.
 
-Features: 
+Features:
 - Automatically create short links when a new post is published
 - Edit short link slugs directly inside Wordpress
 - Track [conversion events](https://dub.co/help/article/dub-conversions) from link click to account signups
@@ -26,9 +26,9 @@ Features:
 
    To install the wordpress plugin
 
-3. Is the plugin free to use?
+2. Is the plugin free to use?
 
-   We have a generous [free plan](https://dub.co/pricing) at Dub that you can use to shorten and create up to 25 links a month. For higher limits, upgrade to our [Pro plan](https://dub.co/help/article/pro-plan). 
+   We have a generous [free plan](https://dub.co/pricing) at Dub that you can use to shorten and create up to 25 links a month. For higher limits, upgrade to our [Pro plan](https://dub.co/help/article/pro-plan).
 
 ## Screenshots
 

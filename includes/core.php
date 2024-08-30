@@ -41,9 +41,9 @@ function setup() {
  * @return void
  */
 function i18n() {
-	$locale = apply_filters( 'plugin_locale', get_locale(), 'dubco-plugin' );
-	load_textdomain( 'dubco-plugin', WP_LANG_DIR . '/dubco-plugin/dubco-plugin-' . $locale . '.mo' );
-	load_plugin_textdomain( 'dubco-plugin', false, plugin_basename( DUBCO_PLUGIN_PATH ) . '/languages/' );
+	$locale = apply_filters( 'plugin_locale', get_locale(), 'dubinc' );
+	load_textdomain( 'dubinc', WP_LANG_DIR . '/dubinc/dubinc-' . $locale . '.mo' );
+	load_plugin_textdomain( 'dubinc', false, plugin_basename( DUBCO_PLUGIN_PATH ) . '/languages/' );
 }
 
 /**
@@ -61,7 +61,7 @@ function init() {
 			function () {
 				$class = 'notice notice-error';
 				/* translators: %s: the path to the plugin */
-				$message = sprintf( __( 'The composer.json file was not found within %s. No classes will be loaded.', 'dubco-plugin' ), DUBCO_PLUGIN_PATH );
+				$message = sprintf( __( 'The composer.json file was not found within %s. No classes will be loaded.', 'dubinc' ), DUBCO_PLUGIN_PATH );
 
 				printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 			}
@@ -146,26 +146,11 @@ function style_url( $stylesheet, $context ) {
 function scripts() {
 
 	wp_enqueue_script(
-		'dubco_plugin_shared',
-		script_url( 'shared', 'shared' ),
-		Utility\get_asset_info( 'shared', 'dependencies' ),
-		Utility\get_asset_info( 'shared', 'version' ),
-		true
-	);
-
-	wp_enqueue_script(
-		'dubco_plugin_frontend',
-		script_url( 'frontend', 'frontend' ),
-		Utility\get_asset_info( 'frontend', 'dependencies' ),
-		Utility\get_asset_info( 'frontend', 'version' ),
-		true
-	);
-
-	wp_enqueue_script(
 		'dubco_tracking_lead_plugin',
 		'https://www.dubcdn.com/analytics/script.js',
 		[],
 		DUBCO_PLUGIN_VERSION,
+		true
 	);
 }
 
@@ -176,21 +161,6 @@ function scripts() {
  */
 function admin_scripts() {
 
-	wp_enqueue_script(
-		'dubco_plugin_shared',
-		script_url( 'shared', 'shared' ),
-		Utility\get_asset_info( 'shared', 'dependencies' ),
-		Utility\get_asset_info( 'shared', 'version' ),
-		true
-	);
-
-	wp_enqueue_script(
-		'dubco_plugin_admin',
-		script_url( 'admin', 'admin' ),
-		Utility\get_asset_info( 'admin', 'dependencies' ),
-		Utility\get_asset_info( 'admin', 'version' ),
-		true
-	);
 }
 
 /**
@@ -200,12 +170,6 @@ function admin_scripts() {
  */
 function styles() {
 
-	wp_enqueue_style(
-		'dubco_plugin_shared',
-		style_url( 'shared', 'shared' ),
-		[],
-		Utility\get_asset_info( 'shared', 'version' ),
-	);
 
 	if ( is_admin() ) {
 		wp_enqueue_style(
@@ -214,14 +178,7 @@ function styles() {
 			[],
 			Utility\get_asset_info( 'admin', 'version' ),
 		);
-	} else {
-		wp_enqueue_style(
-			'dubco_plugin_frontend',
-			style_url( 'frontend', 'frontend' ),
-			[],
-			Utility\get_asset_info( 'frontend', 'version' ),
-		);
-	}
+	} 
 }
 
 /**

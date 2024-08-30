@@ -1,17 +1,15 @@
 <?php
 /**
- * Plugin Name:       Dubco
- * Description:       Allow integration with dub.co
- * Version:           0.1.0
+ * Plugin Name:       Dub Official Integration
+ * Description:       Official WordPress integration for Dub.
+ * Version:           1.0.0
  * Requires at least: 4.9
- * Requires PHP:      7.2
- * Author:            10up
- * Author URI:        https://10up.com
- * License:           GPL v2 or later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       dubco-plugin
+ * Requires PHP:      7.4
+ * Author:            @nicolapeluchetti
+ * License:           AGPLv3
+ * License URI:       https://www.gnu.org/licenses/agpl-3.0.en.html
+ * Text Domain:       dubinc
  * Domain Path:       /languages
- * Update URI:        https://github.com/10up/wp-scaffold
  *
  * @package           Dubco
  */

@@ -40,14 +40,14 @@ class Settings extends Module {
 				register_setting( 'dubco-settings-group', self::API_KEY_OPTION );
 				add_settings_section(
 					'dubco_settings_section',
-					__( 'Post Types Settings', 'dubco-plugin' ),
+					__( 'Post Types Settings', 'dubinc' ),
 					null,
 					'dubco-settings'
 				);
 
 				add_settings_field(
 					'dubco_api_key',
-					__( 'API Key', 'dubco-plugin' ),
+					__( 'API Key', 'dubinc' ),
 					[ $this, 'dubco_api_key_callback' ],
 					'dubco-settings',
 					'dubco_settings_section'
@@ -56,7 +56,7 @@ class Settings extends Module {
 				if ( static::get_api_key() ) {
 					add_settings_field(
 						'dubco_post_types',
-						__( 'Select Post Types', 'dubco-plugin' ),
+						__( 'Select Post Types', 'dubinc' ),
 						[ $this, 'dubco_post_types_callback' ],
 						'dubco-settings',
 						'dubco_settings_section'
@@ -88,8 +88,8 @@ class Settings extends Module {
 	public function dubco_settings_page() {
 		add_submenu_page(
 			'options-general.php',
-			__( 'Dub', 'dubco-plugin' ),
-			__( 'Dub', 'dubco-plugin' ),
+			__( 'Dub', 'dubinc' ),
+			__( 'Dub', 'dubinc' ),
 			'manage_options',
 			'dubco-settings',
 			[ $this, 'dubco_settings_page_html' ],
@@ -111,7 +111,7 @@ class Settings extends Module {
 		wp_nonce_field( self::ACTION, self::NONONCE );
 		settings_fields( 'dubco-settings-group' );
 		do_settings_sections( 'dubco-settings' );
-		submit_button( __( 'Save Settings', 'dubco-plugin' ) );
+		submit_button( __( 'Save Settings', 'dubinc' ) );
 		?>
 			</form>
 		</div>

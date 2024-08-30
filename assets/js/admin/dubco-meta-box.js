@@ -45,7 +45,7 @@ window.jQuery(document).ready(function ($) {
 		const postId = $('#post_ID').val();
 		const linkId = $('#dubco_short_url_id').val();
 		const key = $('#dubco_key').val();
-		$(this).text(wp.i18n.__('Updating...', 'dubco-plugin'));
+		$(this).text(wp.i18n.__('Updating...', 'dubinc'));
 		try {
 			$('#dubco_error').hide();
 			const response = await updateShortLink(postId, linkId, key);
@@ -59,7 +59,7 @@ window.jQuery(document).ready(function ($) {
 			console.error(error);
 			$('#dubco_error').addClass('error').text(error).show();
 		} finally {
-			$(this).text(wp.i18n.__('Update', 'dubco-plugin'));
+			$(this).text(wp.i18n.__('Update', 'dubinc'));
 		}
 	});
 });

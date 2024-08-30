@@ -41,19 +41,19 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 
 	if (postStatus !== 'publish') {
 		return (
-			<PluginDocumentSettingPanel title={__('Dubco', 'dubco-plugin')} initialOpen={false}>
+			<PluginDocumentSettingPanel title={__('Dubco', 'dubinc')} initialOpen={false}>
 				<Notice status="warning" isDismissible={false}>
 					{__(
 						'You can only create short links for published posts. ' +
 							"A short link will be created automatically, if it doesn't exists when this post is published",
-						'dubco-plugin',
+						'dubinc',
 					)}
 				</Notice>
 			</PluginDocumentSettingPanel>
 		);
 	}
 	return (
-		<PluginDocumentSettingPanel title={__('Dubco', 'dubco-plugin')} initialOpen={false}>
+		<PluginDocumentSettingPanel title={__('Dubco', 'dubinc')} initialOpen={false}>
 			<PanelRow>
 				<div>
 					{_dubco_short_url && (
@@ -62,13 +62,13 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 								{editMode ? (
 									<TextControl
 										value={pathname}
-										label={__('Edit the pathname', 'dubco-plugin')}
+										label={__('Edit the pathname', 'dubinc')}
 										onChange={(value) => setPathname(value)}
 									/>
 								) : (
 									<TextControl
 										value={_dubco_short_url}
-										label={__('Url', 'dubco-plugin')}
+										label={__('Url', 'dubinc')}
 										onChange={(value) =>
 											setMetaFields({ _dubco_short_url: value })
 										}
@@ -102,15 +102,15 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 										}}
 									>
 										{isLoading
-											? __('Updating', 'dubco-plugin')
-											: __('Update', 'dubco-plugin')}
+											? __('Updating', 'dubinc')
+											: __('Update', 'dubinc')}
 									</Button>
 								) : (
 									<Button
 										variant="primary"
 										onClick={() => setEditMode(!editMode)}
 									>
-										{__('Edit', 'dubco-plugin')}
+										{__('Edit', 'dubinc')}
 									</Button>
 								)}
 							</div>
@@ -126,10 +126,7 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 							<Button
 								variant="primary"
 								disabled={isLoading}
-								description={__(
-									'Create a short link for this post',
-									'dubco-plugin',
-								)}
+								description={__('Create a short link for this post', 'dubinc')}
 								onClick={async () => {
 									try {
 										setError('');
@@ -146,8 +143,8 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 								}}
 							>
 								{isLoading
-									? __('Creating Short Link...', 'dubco-plugin')
-									: __('Create Short Link', 'dubco-plugin')}
+									? __('Creating Short Link...', 'dubinc')
+									: __('Create Short Link', 'dubinc')}
 							</Button>
 							{_dubco_short_url_error && (
 								<Notice
