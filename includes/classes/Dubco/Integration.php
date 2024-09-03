@@ -47,6 +47,10 @@ class Integration extends Module {
 					return;
 				}
 
+				if ( 'publish' !== $post->post_status ) {
+					return;
+				}
+
 				$short_url = get_post_meta( $post_id, '_dubco_short_url', true );
 
 				if ( ! $short_url ) {
@@ -74,7 +78,9 @@ class Integration extends Module {
 		if ( 200 !== $response['status_code'] ) {
 			update_post_meta( $post_id, '_dubco_short_url_error', $response['body']->error->message );
 
-			return [];
+			return [
+				'error' => $response['body']->error->message,
+			];
 		}
 
 		self::update_meta_from_response( $post_id, $response );
