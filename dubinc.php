@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Dub Official Integration
- * Description:       Official WordPress integration for Dub.
+ * Description:       Official WordPress integration for Dub Technologies, Inc.
  * Version:           1.0.0
  * Requires at least: 4.9
  * Requires PHP:      7.4

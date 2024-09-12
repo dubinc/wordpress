@@ -45,8 +45,8 @@ class Classic extends Module {
 		);
 	}
 
-	public function echo_analitycs_link( $short_url, $workspace ): void {
-		if ( ! $short_url || ! $workspace ) {
+	public function echo_analitycs_link( $short_url ): void {
+		if ( ! $short_url ) {
 			return;
 		}
 		$domain   = wp_parse_url( $short_url, PHP_URL_HOST );
@@ -56,7 +56,7 @@ class Classic extends Module {
 			return;
 		}
 
-		$href = "https://app.dub.co/{$workspace}/analytics?domain={$domain}&key={$pathname}&tab=clicks";
+		$href = "https://app.dub.co/analytics?domain={$domain}&key={$pathname}&tab=clicks";
 		?>
 		<div class="dubco-analytics-link" style="height: 20px">
 			<p>
@@ -77,7 +77,6 @@ class Classic extends Module {
 		wp_nonce_field( 'dubco_save_meta_box_data', 'dubco_meta_box_nonce' );
 		$short_url    = get_post_meta( $post->ID, '_dubco_short_url', true );
 		$short_url_id = get_post_meta( $post->ID, '_dubco_short_url_id', true );
-		$workspace    = get_post_meta( $post->ID, '_dubco_workspace_slug', true );
 		$pathname     = '';
 		if ( $short_url ) {
 			$pathname = ltrim( wp_parse_url( $short_url, PHP_URL_PATH ), '/' );
@@ -100,7 +99,7 @@ class Classic extends Module {
 			<button id="dubco_create_button" class="button <?php if ( $short_url ) { echo 'hidden';} ?>">
 				<?php esc_html_e( 'Create Short Link', 'dubinc' ); ?>
 			</button>
-			<?php $this->echo_analitycs_link( $short_url, $workspace ); ?>
+			<?php $this->echo_analitycs_link( $short_url ); ?>
 			<div id="dubco_error" class="hidden"></div>
 		</div>
 		<?php

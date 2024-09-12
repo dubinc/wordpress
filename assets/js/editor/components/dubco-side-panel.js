@@ -6,6 +6,7 @@ import { PanelRow, TextControl, Button, Notice } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import AnalitycsLink from './components/analytics-link';
+import { ReactComponent as DubincIcon } from './assets/logo.svg';
 
 const createShortLink = async (postId) => {
 	return apiFetch({
@@ -29,7 +30,7 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 	const [error, setError] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 
-	const { _dubco_short_url, _dubco_short_url_id, _dubco_short_url_error, _dubco_workspace_slug } =
+	const { _dubco_short_url, _dubco_short_url_id, _dubco_short_url_error } =
 		metaFields;
 
 	useEffect(() => {
@@ -41,7 +42,11 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 
 	if (postStatus !== 'publish') {
 		return (
-			<PluginDocumentSettingPanel title={__('Dubco', 'dubinc')} initialOpen={false}>
+			<PluginDocumentSettingPanel
+				title={__('Dub', 'dubinc')}
+				initialOpen={false}
+				icon={<DubincIcon />}
+			>
 				<Notice status="warning" isDismissible={false}>
 					{__(
 						'You can only create short links for published posts. ' +
@@ -117,7 +122,6 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 							{error && <Notice status="error">{error}</Notice>}
 							<AnalitycsLink
 								shortLink={_dubco_short_url}
-								workspaceSlug={_dubco_workspace_slug}
 							/>
 						</>
 					)}

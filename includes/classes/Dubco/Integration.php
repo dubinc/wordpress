@@ -13,19 +13,6 @@ class Integration extends Module {
 		update_post_meta( $post_id, '_dubco_short_url', $response['body']->shortLink );
 		update_post_meta( $post_id, '_dubco_short_url_id', $response['body']->id );
 		update_post_meta( $post_id, '_dubco_short_url_domain', $response['body']->domain );
-
-		$workspaces = get_option( 'dubco_workspaces', [] );
-		if ( ! isset( $workspaces[ $response['body']->workspaceId ] ) ) {
-			$api_client         = ApiClient::get_instance();
-			$workspace_response = $api_client->request( 'GET', '/workspaces/' . $response['body']->workspaceId );
-			if ( 200 !== $workspace_response['status_code'] ) {
-				return;
-			}
-			$workspaces[ $response['body']->workspaceId ] = $workspace_response['body'];
-			update_option( 'dubco_workspaces', $workspaces );
-		}
-
-		update_post_meta( $post_id, '_dubco_workspace_slug', $workspaces[ $response['body']->workspaceId ]->slug );
 	}
 
 	/**

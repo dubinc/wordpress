@@ -48,7 +48,6 @@ class Gutenberg extends Module {
 			'_dubco_short_url_id',
 			'_dubco_short_url_domain',
 			'_dubco_short_url_error',
-			'_dubco_workspace_slug',
 		];
 
 		foreach ( $metafields as $metafield ) {
