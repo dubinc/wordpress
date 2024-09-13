@@ -18,8 +18,11 @@ class Plugin extends Module {
 	 * @inheritDoc
 	 */
 	public function register() {
+		$exploded = explode( '/', __DIR__ );
+		$plugin_dir = $exploded[ count( $exploded ) - 3 ];
+
 		add_filter(
-			'plugin_action_links_dubinc/dubinc.php',
+			"plugin_action_links_{$plugin_dir}/dubinc.php",
 			[ $this, 'plugin_action_links' ]
 		);
 	}
