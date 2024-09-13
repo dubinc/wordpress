@@ -84,10 +84,20 @@ function activate() {
 	init();
 	flush_rewrite_rules();
 	if ( ! get_option( 'dubco_api_key' ) ) {
-		wp_safe_redirect( Plugin::get_settings_url() );
-		exit;
+		set_transient( 'dubco_plugin_activated', true, 30 );
 	}
 }
+
+add_action(
+	'admin_init',
+	function () {
+		if ( get_transient( 'dubco_plugin_activated' ) ) {
+			delete_transient( 'dubco_plugin_activated' );
+			wp_safe_redirect( Plugin::get_settings_url() );
+			exit;
+		}
+	}
+);
 
 /**
  * Deactivate the plugin
