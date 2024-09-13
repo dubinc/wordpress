@@ -21,3 +21,14 @@
 		margin-bottom: 10px;
 	}
 }
+
+.settings_page_dubco-settings {
+
+	.form-table th {
+		width: 25%;
+	}
+
+	.dubinc-checkbox {
+		margin-bottom: 8px;
+	}
+}

@@ -7,6 +7,10 @@ window.jQuery(document).ready(function ($) {
 		});
 	};
 
+	$('.dubinc-add-class-notices').each(function () {
+		$(this).addClass('notice notice-warning');
+	});
+
 	$('#dubco_create_button').on('click', function (event) {
 		event.preventDefault();
 		const postId = $('#post_ID').val();

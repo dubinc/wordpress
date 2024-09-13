@@ -327,7 +327,7 @@
                     "dev-develop": "10.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL-3.0-or-later"

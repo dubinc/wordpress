@@ -81,7 +81,16 @@ class Classic extends Module {
 		if ( $short_url ) {
 			$pathname = ltrim( wp_parse_url( $short_url, PHP_URL_PATH ), '/' );
 		}
+
+		if ( 'publish' !== $post->post_status ) {
+			echo '<div class="dubinc-add-class-notices"><p>' .
+					esc_html__( 'You can only create short links for published posts. A short link will be created automatically, if it doesn\'t exists when this post is published', 'dubinc' ) .
+					'</p></div>';
+			return;
+		}
 		?>
+
+
 		<div id="dubco-meta-box">
 			<input type="hidden" name="dubco_short_url_id" id="dubco_short_url_id"
 				value="<?php echo esc_attr( $short_url_id ); ?>"/>

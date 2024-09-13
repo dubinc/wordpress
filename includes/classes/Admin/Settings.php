@@ -7,11 +7,6 @@ use Dubco\Module;
 
 class Settings extends Module {
 
-
-	const ACTION = 'dubco_starts_oauth';
-
-	const NONONCE = 'dubco_starts_oauth_nonce';
-
 	const API_KEY_OPTION = 'dubco_api_key';
 
 	public static function get_supported_post_types() {
@@ -40,7 +35,7 @@ class Settings extends Module {
 				register_setting( 'dubco-settings-group', self::API_KEY_OPTION );
 				add_settings_section(
 					'dubco_settings_section',
-					__( 'Post Types Settings', 'dubinc' ),
+					__( 'Dub integrations settings', 'dubinc' ),
 					null,
 					'dubco-settings'
 				);
@@ -56,7 +51,7 @@ class Settings extends Module {
 				if ( static::get_api_key() ) {
 					add_settings_field(
 						'dubco_post_types',
-						__( 'Select Post Types', 'dubinc' ),
+						__( 'Which types of posts do you want Dub to automatically create short links for?', 'dubinc' ),
 						[ $this, 'dubco_post_types_callback' ],
 						'dubco-settings',
 						'dubco_settings_section'
@@ -69,6 +64,7 @@ class Settings extends Module {
 	public function dubco_api_key_callback() {
 		$api_key = get_option( self::API_KEY_OPTION );
 		echo '<input type="text" name="' . esc_attr( self::API_KEY_OPTION ) . '" value="' . esc_attr( $api_key ) . '" class="regular-text">';
+		echo '<p class="description"><a href="https://dub.co/docs/api-reference/tokens#how-to-create-an-api-key" target="_blank">' . esc_html__( 'Here is how to create an API Key.', 'dubinc' ) . '</a></p>';
 	}
 
 	public function dubco_post_types_callback() {
@@ -77,10 +73,10 @@ class Settings extends Module {
 		echo '<div>';
 		foreach ( $post_types as $post_type ) {
 			$checked = in_array( $post_type->name, $selected_post_types, true ) ? 'checked' : '';
-			echo '<label>';
+			echo '<div class="dubinc-checkbox"><label>';
 			echo '<input type="checkbox" name="dubco_selected_post_types[]" value="' . esc_attr( $post_type->name ) . '" ' . esc_attr( $checked ) . '>';
 			echo esc_html( $post_type->label );
-			echo '</label><br>';
+			echo '</label></div>';
 		}
 		echo '</div>';
 	}
@@ -108,7 +104,6 @@ class Settings extends Module {
 		<div class="wrap">
 			<form action="options.php?action=dubco_save_options" method="post">
 		<?php
-		wp_nonce_field( self::ACTION, self::NONONCE );
 		settings_fields( 'dubco-settings-group' );
 		do_settings_sections( 'dubco-settings' );
 		submit_button( __( 'Save Settings', 'dubinc' ) );

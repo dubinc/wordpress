@@ -8,6 +8,7 @@
 namespace Dubco\Core;
 
 use Dubco\ModuleInitialization;
+use Dubco\Plugin;
 use WP_Error;
 use Dubco\Utility;
 
@@ -82,6 +83,10 @@ function activate() {
 	// First load the init scripts in case any rewrite functionality is being loaded
 	init();
 	flush_rewrite_rules();
+	if ( ! get_option( 'dubco_api_key' ) ) {
+		wp_safe_redirect( Plugin::get_settings_url() );
+		exit;
+	}
 }
 
 /**

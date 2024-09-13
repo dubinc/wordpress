@@ -24,5 +24,10 @@
     "files": [
       "includes/helpers/helpers.php"
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }

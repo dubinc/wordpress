@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Dub Official Integration
+ * Plugin Name:       Dub - Short Links With Superpowers
  * Description:       Official WordPress integration for Dub Technologies, Inc.
  * Version:           1.0.0
  * Requires at least: 4.9
