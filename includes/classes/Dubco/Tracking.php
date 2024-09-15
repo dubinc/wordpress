@@ -8,7 +8,7 @@ use Dubco\Module;
 class Tracking extends Module {
 
 
-	const COOKIE_NAME = 'dclid';
+	const COOKIE_NAME = 'dubId';
 
 	/**
 	 * @inheritDoc
