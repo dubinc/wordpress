@@ -9,6 +9,7 @@ namespace Dubco\Core;
 
 use Dubco\ModuleInitialization;
 use Dubco\Plugin;
+use Dubco\UpdateChecker;
 use WP_Error;
 use Dubco\Utility;
 
@@ -22,6 +23,8 @@ function setup() {
 	$n = function ( $function ) {
 		return __NAMESPACE__ . "\\$function";
 	};
+
+	new UpdateChecker();
 
 	add_action( 'init', $n( 'i18n' ) );
 	add_action( 'init', $n( 'init' ), apply_filters( 'dubco_plugin_init_priority', 8 ) );

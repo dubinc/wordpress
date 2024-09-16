@@ -18,7 +18,7 @@ class Plugin extends Module {
 	 * @inheritDoc
 	 */
 	public function register() {
-		$exploded = explode( '/', __DIR__ );
+		$exploded   = explode( '/', __DIR__ );
 		$plugin_dir = $exploded[ count( $exploded ) - 3 ];
 
 		add_filter(
