@@ -63,7 +63,7 @@ class Settings extends Module {
 
 	public function dubco_api_key_callback() {
 		$api_key = get_option( self::API_KEY_OPTION );
-		echo '<input type="text" name="' . esc_attr( self::API_KEY_OPTION ) . '" value="' . esc_attr( $api_key ) . '" class="regular-text">';
+		echo '<input type="text" name="' . esc_attr( self::API_KEY_OPTION ) . '" value="' . esc_attr( $api_key ) . '" placeholder="dub_xxxxxxxx" class="regular-text">';
 		echo '<p class="description"><a href="https://dub.co/docs/api-reference/tokens#how-to-create-an-api-key" target="_blank">' . esc_html__( 'Here is how to create an API Key.', 'dubinc' ) . '</a></p>';
 	}
 
