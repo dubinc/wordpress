@@ -9,16 +9,20 @@ Requires PHP: 7.4
 License: AGPLv3
 License URI: https://www.gnu.org/licenses/agpl-3.0.en.html
 
-Official WordPress integration for Dub. Create and manage your short links and track conversion events – directly inside Wordpress.
+Official WordPress integration for [Dub](https://dub.co). Create and manage your short links and track conversion events – directly inside Wordpress.
 
 ## Description
 
-This is the official WordPress Integration for Dub.
+This is the official WordPress Integration for [Dub](https://dub.co). It uses [Dub's API](https://dub.co/api) to programmatically shorten links inside Wordpress.
 
 Features:
 - Automatically create short links when a new post is published
 - Edit short link slugs directly inside WordPress
 - Track [conversion events](https://dub.co/help/article/dub-conversions) from link click to account signups
+
+About Dub:
+- [Terms of Service](https://dub.co/legal/terms)
+- [Privacy Policy](https://dub.co/legal/privacy)
 
 ## Frequently Asked Questions
 
