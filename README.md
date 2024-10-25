@@ -1,7 +1,6 @@
 ## Dub Wordpress Plugin
 
-Contributors:
-Tags: tag1, tag2
+Contributors: [nicola.peluchetti](https://github.com/nicoladj77)
 Requires at least: 4.7
 Tested up to: 6.6.2
 Stable tag: 1.0.0
