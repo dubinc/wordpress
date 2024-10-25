@@ -5,7 +5,7 @@
  * Version:           1.0.0
  * Requires at least: 4.9
  * Requires PHP:      7.4
- * Author:           	Dub Technologies, Inc.
+ * Author:            Dub Technologies, Inc.
  * License:           AGPLv3
  * License URI:       https://www.gnu.org/licenses/agpl-3.0.en.html
  * Text Domain:       dubinc

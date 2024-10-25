@@ -1,4 +1,4 @@
-## Dub Wordpress Plugin
+## Dub – Short Links With Superpowers
 
 Contributors: [nicola.peluchetti](https://github.com/nicoladj77)
 Requires at least: 4.7
