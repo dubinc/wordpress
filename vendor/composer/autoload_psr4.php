@@ -11,5 +11,5 @@ return array(
     'NelsonMartell\\PhpCodeSniffer\\' => array($vendorDir . '/nelson6e65/code-sniffer-helpers/src'),
     'HaydenPierce\\ClassFinder\\UnitTest\\' => array($vendorDir . '/haydenpierce/class-finder/test/unit'),
     'HaydenPierce\\ClassFinder\\' => array($vendorDir . '/haydenpierce/class-finder/src'),
-    'Dubco\\' => array($baseDir . '/includes/classes'),
+    'DubTechnologiesInc\\' => array($baseDir . '/includes/classes'),
 );

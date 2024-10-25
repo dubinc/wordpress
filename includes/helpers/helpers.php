@@ -1,11 +1,12 @@
 <?php
+
 /**
  * Plugin specific helpers.
  *
- * @package Dubco
+ * @package DubTechnologiesInc
  */
 
-namespace Dubco;
+namespace DubTechnologiesInc;
 
 /**
  * Get an initialized class by its full class name, including namespace.
@@ -15,5 +16,5 @@ namespace Dubco;
  * @return false|Module
  */
 function get_module( $class_name ) {
-	return \Dubco\ModuleInitialization::instance()->get_class( $class_name );
+	return \DubTechnologiesInc\ModuleInitialization::instance()->get_class( $class_name );
 }

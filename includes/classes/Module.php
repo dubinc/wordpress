@@ -2,10 +2,10 @@
 /**
  * Module
  *
- * @package Dubco
+ * @package DubTechnologiesInc
  */
 
-namespace Dubco;
+namespace DubTechnologiesInc;
 
 /**
  * Module is any feature that conditionally activates based on the current context.

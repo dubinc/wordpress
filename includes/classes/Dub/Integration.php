@@ -1,11 +1,11 @@
 <?php
 
-namespace Dubco\Dubco;
+namespace DubTechnologiesInc\Dub;
 
-use Dubco\Admin\Settings;
-use Dubco\Api\ApiClient;
-use Dubco\Api\TokenManager;
-use Dubco\Module;
+use DubTechnologiesInc\Admin\Settings;
+use DubTechnologiesInc\Api\ApiClient;
+use DubTechnologiesInc\Api\TokenManager;
+use DubTechnologiesInc\Module;
 
 class Integration extends Module {
 
@@ -21,33 +21,35 @@ class Integration extends Module {
 	public function register() {
 		add_action(
 			'save_post',
-			function ( int $post_id, \WP_Post $post ) {
-				if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-					return;
-				}
-
-				if ( ! current_user_can( 'edit_post', $post_id ) ) {
-					return;
-				}
-
-				if ( ! in_array( $post->post_type, Settings::get_supported_post_types(), true ) ) {
-					return;
-				}
-
-				if ( 'publish' !== $post->post_status ) {
-					return;
-				}
-
-				$short_url = get_post_meta( $post_id, '_dubco_short_url', true );
-
-				if ( ! $short_url ) {
-					$this->generate_short_url( $post_id );
-
-				}
-			},
+			[ $this, 'save_post' ],
 			10,
 			2
 		);
+	}
+
+	public function save_post( int $post_id, \WP_Post $post ) {
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+
+		if ( ! in_array( $post->post_type, Settings::get_supported_post_types(), true ) ) {
+			return;
+		}
+
+		if ( 'publish' !== $post->post_status ) {
+			return;
+		}
+
+		$short_url = get_post_meta( $post_id, '_dubco_short_url', true );
+
+		if ( ! $short_url ) {
+			$this->generate_short_url( $post_id );
+
+		}
 	}
 
 	public function generate_short_url( $post_id ) {

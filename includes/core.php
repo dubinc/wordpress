@@ -1,17 +1,18 @@
 <?php
+
 /**
  * Core plugin functionality.
  *
- * @package Dubco
+ * @package DubTechnologiesInc
  */
 
-namespace Dubco\Core;
+namespace DubTechnologiesInc\Core;
 
-use Dubco\ModuleInitialization;
-use Dubco\Plugin;
-use Dubco\UpdateChecker;
+use DubTechnologiesInc\ModuleInitialization;
+use DubTechnologiesInc\Plugin;
+use DubTechnologiesInc\UpdateChecker;
 use WP_Error;
-use Dubco\Utility;
+use DubTechnologiesInc\Utility;
 
 
 /**
@@ -74,6 +75,7 @@ function init() {
 	}
 
 	ModuleInitialization::instance()->init_classes();
+
 	do_action( 'dubco_plugin_init' );
 }
 
@@ -133,7 +135,7 @@ function get_enqueue_contexts() {
 function script_url( $script, $context ) {
 
 	if ( ! in_array( $context, get_enqueue_contexts(), true ) ) {
-		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in Dubco script loader.' );
+		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in DubTechnologiesInc script loader.' );
 	}
 
 	return DUBCO_PLUGIN_URL . "dist/js/{$script}.js";
@@ -150,7 +152,7 @@ function script_url( $script, $context ) {
 function style_url( $stylesheet, $context ) {
 
 	if ( ! in_array( $context, get_enqueue_contexts(), true ) ) {
-		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in Dubco stylesheet loader.' );
+		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in DubTechnologiesInc stylesheet loader.' );
 	}
 
 	return DUBCO_PLUGIN_URL . "dist/css/{$stylesheet}.css";

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dubco;
+namespace DubTechnologiesInc;
 
 use stdClass;
 

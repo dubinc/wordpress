@@ -1,9 +1,9 @@
 <?php
 
-namespace Dubco\Admin;
+namespace DubTechnologiesInc\Admin;
 
-use Dubco\Api\ApiClient;
-use Dubco\Module;
+use DubTechnologiesInc\Api\ApiClient;
+use DubTechnologiesInc\Module;
 
 class Settings extends Module {
 

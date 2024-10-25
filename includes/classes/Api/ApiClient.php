@@ -1,8 +1,8 @@
 <?php
 
-namespace Dubco\Api;
+namespace DubTechnologiesInc\Api;
 
-use Dubco\Admin\Settings;
+use DubTechnologiesInc\Admin\Settings;
 
 class ApiClient {
 

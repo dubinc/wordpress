@@ -1,8 +1,8 @@
 <?php
 
-namespace Dubco\Rest;
+namespace DubTechnologiesInc\Rest;
 
-use Dubco\Module;
+use DubTechnologiesInc\Module;
 use WP_REST_Server;
 
 class User extends Module {

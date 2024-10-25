@@ -1,9 +1,9 @@
 <?php
 
-namespace Dubco\Editor;
+namespace DubTechnologiesInc\Editor;
 
-use Dubco\Admin\Settings;
-use Dubco\Module;
+use DubTechnologiesInc\Admin\Settings;
+use DubTechnologiesInc\Module;
 
 class Gutenberg extends Module {
 
