@@ -1,9 +1,9 @@
 <?php
 
-namespace Dubco\Editor;
+namespace DubTechnologiesInc\Editor;
 
-use Dubco\Module;
-use Dubco\ModuleInitialization;
+use DubTechnologiesInc\Module;
+use DubTechnologiesInc\ModuleInitialization;
 
 class Classic extends Module {
 
@@ -34,7 +34,7 @@ class Classic extends Module {
 	public function dubco_add_meta_box() {
 		add_meta_box(
 			'dubco_meta_box',
-			__( 'Dubco Short Link', 'dubinc' ),
+			__( 'DubTechnologiesInc Short Link', 'dubinc' ),
 			[ $this, 'dubco_meta_box_callback' ],
 			null,
 			'side',
@@ -117,7 +117,7 @@ class Classic extends Module {
 	public function dubco_create_short_link() {
 		check_ajax_referer( 'dubco_meta_box_nonce', 'nonce' );
 		$post_id     = (int) filter_input( INPUT_POST, 'post_id', FILTER_SANITIZE_NUMBER_INT );
-		$integration = ModuleInitialization::instance()->get_class( 'Dubco\Dubco\Integration' );
+		$integration = ModuleInitialization::instance()->get_class( 'DubTechnologiesInc\DubTechnologiesInc\Integration' );
 		$response    = $integration->generate_short_url( $post_id );
 
 		if ( $response['error'] ) {

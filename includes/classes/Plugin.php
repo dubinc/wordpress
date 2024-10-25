@@ -1,8 +1,8 @@
 <?php
 
-namespace Dubco;
+namespace DubTechnologiesInc;
 
-use Dubco\Module;
+use DubTechnologiesInc\Module;
 
 class Plugin extends Module {
 

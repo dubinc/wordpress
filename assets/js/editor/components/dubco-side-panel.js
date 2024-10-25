@@ -58,7 +58,7 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 		);
 	}
 	return (
-		<PluginDocumentSettingPanel title={__('Dubco', 'dubinc')} initialOpen={false}>
+		<PluginDocumentSettingPanel title={__('Dub', 'dubinc')} initialOpen={false}>
 			<PanelRow>
 				<div>
 					{_dubco_short_url && (

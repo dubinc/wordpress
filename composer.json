@@ -19,7 +19,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Dubco\\": "includes/classes/"
+      "DubTechnologiesInc\\": "includes/classes/"
     },
     "files": [
       "includes/helpers/helpers.php"

@@ -1,11 +1,11 @@
 <?php
 
-namespace Dubco\Rest;
+namespace DubTechnologiesInc\Rest;
 
-use Dubco\Api\ApiClient;
-use Dubco\Api\TokenManager;
-use Dubco\Dubco\Integration;
-use Dubco\Module;
+use DubTechnologiesInc\Api\ApiClient;
+use DubTechnologiesInc\Api\TokenManager;
+use DubTechnologiesInc\DubTechnologiesInc\Integration;
+use DubTechnologiesInc\Module;
 use WP_REST_Server;
 
 class Links extends Module {

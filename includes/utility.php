@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Utility functions for the plugin.
  *
@@ -8,10 +9,10 @@
  * to Namespaces.
  *
  * @link    https://developer.wordpress.org/themes/basics/template-tags/
- * @package Dubco
+ * @package DubTechnologiesInc
  */
 
-namespace Dubco\Utility;
+namespace DubTechnologiesInc\Utility;
 
 /**
  * Get asset info from extracted asset files

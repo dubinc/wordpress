@@ -2,10 +2,10 @@
 /**
  * Auto-initialize all Module based clases in the plugin.
  *
- * @package Dubco
+ * @package DubTechnologiesInc
  */
 
-namespace Dubco;
+namespace DubTechnologiesInc;
 
 use HaydenPierce\ClassFinder\ClassFinder;
 use ReflectionClass;
@@ -13,7 +13,7 @@ use ReflectionClass;
 /**
  * ModuleInitialization class.
  *
- * @package Dubco
+ * @package DubTechnologiesInc
  */
 class ModuleInitialization {
 
@@ -52,18 +52,18 @@ class ModuleInitialization {
 	protected $classes = [];
 
 	/**
-	 * Get all the Dubco plugin classes.
+	 * Get all the DubTechnologiesInc plugin classes.
 	 *
 	 * @return array
 	 */
 	protected function get_classes() {
 		$class_finder = new ClassFinder();
 		$class_finder::setAppRoot( DUBCO_PLUGIN_PATH );
-		return $class_finder::getClassesInNamespace( 'Dubco', ClassFinder::RECURSIVE_MODE );
+		return $class_finder::getClassesInNamespace( 'DubTechnologiesInc', ClassFinder::RECURSIVE_MODE );
 	}
 
 	/**
-	 * Initialize all the Dubco plugin classes.
+	 * Initialize all the DubTechnologiesInc plugin classes.
 	 *
 	 * @return void
 	 */
@@ -88,7 +88,7 @@ class ModuleInitialization {
 			}
 
 			// Make sure the class is a subclass of Module, so we can initialize it.
-			if ( ! $reflection_class->isSubclassOf( '\Dubco\Module' ) ) {
+			if ( ! $reflection_class->isSubclassOf( '\DubTechnologiesInc\Module' ) ) {
 				continue;
 			}
 
@@ -138,7 +138,7 @@ class ModuleInitialization {
 	 *
 	 * @param string $class_name The class name & namespace.
 	 *
-	 * @return false|\Dubco\Module
+	 * @return false|\DubTechnologiesInc\Module
 	 */
 	public function get_class( $class_name ) {
 		$class_name = $this->slugify_class_name( $class_name );

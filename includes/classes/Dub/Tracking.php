@@ -1,9 +1,9 @@
 <?php
 
-namespace Dubco\Dubco;
+namespace DubTechnologiesInc\Dub;
 
-use Dubco\Api\ApiClient;
-use Dubco\Module;
+use DubTechnologiesInc\Api\ApiClient;
+use DubTechnologiesInc\Module;
 
 class Tracking extends Module {
 

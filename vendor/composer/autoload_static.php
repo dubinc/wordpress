@@ -11,51 +11,51 @@ class ComposerStaticInitd1784f2c92b286d9c307ca55f3de8bb9
     );
 
     public static $prefixLengthsPsr4 = array (
-        'V' => 
+        'V' =>
         array (
             'VariableAnalysis\\' => 17,
         ),
-        'P' => 
+        'P' =>
         array (
             'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 57,
         ),
-        'N' => 
+        'N' =>
         array (
             'NelsonMartell\\PhpCodeSniffer\\' => 29,
         ),
-        'H' => 
+        'H' =>
         array (
             'HaydenPierce\\ClassFinder\\UnitTest\\' => 34,
             'HaydenPierce\\ClassFinder\\' => 25,
         ),
-        'D' => 
+        'D' =>
         array (
-            'Dubco\\' => 6,
+            'DubTechnologiesInc\\' => 6,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'VariableAnalysis\\' => 
+        'VariableAnalysis\\' =>
         array (
             0 => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis',
         ),
-        'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 
+        'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' =>
         array (
             0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
         ),
-        'NelsonMartell\\PhpCodeSniffer\\' => 
+        'NelsonMartell\\PhpCodeSniffer\\' =>
         array (
             0 => __DIR__ . '/..' . '/nelson6e65/code-sniffer-helpers/src',
         ),
-        'HaydenPierce\\ClassFinder\\UnitTest\\' => 
+        'HaydenPierce\\ClassFinder\\UnitTest\\' =>
         array (
             0 => __DIR__ . '/..' . '/haydenpierce/class-finder/test/unit',
         ),
-        'HaydenPierce\\ClassFinder\\' => 
+        'HaydenPierce\\ClassFinder\\' =>
         array (
             0 => __DIR__ . '/..' . '/haydenpierce/class-finder/src',
         ),
-        'Dubco\\' => 
+        'DubTechnologiesInc\\' =>
         array (
             0 => __DIR__ . '/../..' . '/includes/classes',
         ),

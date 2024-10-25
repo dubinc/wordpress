@@ -11,8 +11,10 @@
  * Text Domain:       dubinc
  * Domain Path:       /languages
  *
- * @package           Dubco
+ * @package           DubTechnologiesInc
  */
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // Useful global constants.
 define( 'DUBCO_PLUGIN_VERSION', '0.1.0' );
@@ -36,8 +38,8 @@ require_once DUBCO_PLUGIN_INC . '/utility.php';
 require_once DUBCO_PLUGIN_INC . '/core.php';
 
 // Activation/Deactivation.
-register_activation_hook( __FILE__, '\Dubco\Core\activate' );
-register_deactivation_hook( __FILE__, '\Dubco\Core\deactivate' );
+register_activation_hook( __FILE__, '\DubTechnologiesInc\Core\activate' );
+register_deactivation_hook( __FILE__, '\DubTechnologiesInc\Core\deactivate' );
 
 // Bootstrap.
-Dubco\Core\setup();
+DubTechnologiesInc\Core\setup();
