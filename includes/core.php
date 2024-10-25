@@ -25,8 +25,6 @@ function setup() {
 		return __NAMESPACE__ . "\\$function";
 	};
 
-	new UpdateChecker();
-
 	add_action( 'init', $n( 'i18n' ) );
 	add_action( 'init', $n( 'init' ), apply_filters( 'dubco_plugin_init_priority', 8 ) );
 	add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );

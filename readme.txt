@@ -1,4 +1,4 @@
-=== Dub – Short Links With Superpowers ===
+=== Dub - Short Links With Superpowers ===
 Contributors: @nicolapeluchetti
 Requires at least: 5.5
 Tested up to: 6.6.1
