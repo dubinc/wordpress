@@ -3,8 +3,7 @@
 namespace DubTechnologiesInc\Rest;
 
 use DubTechnologiesInc\Api\ApiClient;
-use DubTechnologiesInc\Api\TokenManager;
-use DubTechnologiesInc\DubTechnologiesInc\Integration;
+use DubTechnologiesInc\Dub\Integration;
 use DubTechnologiesInc\Module;
 use WP_REST_Server;
 
