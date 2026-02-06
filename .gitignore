@@ -12,7 +12,6 @@ tmp/
 
 # build tools lock
 yarn.lock
-package-lock.json
 
 # IDE's
 .project/
