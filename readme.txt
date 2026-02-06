@@ -1,7 +1,7 @@
 === Dub - Short Links With Superpowers ===
 Contributors: @nicolapeluchetti
 Requires at least: 5.5
-Tested up to: 6.6.1
+Tested up to: 6.9.1
 Stable tag: 1.0.1
 Requires PHP: 7.4
 License: AGPLv3
