@@ -16,10 +16,6 @@
 /.gitignore
 /.distignore
 
-# Source assets (not built)
-/assets/js
-/assets/css
-
 # Documentation
 /README.md
 

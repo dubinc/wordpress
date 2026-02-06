@@ -117,7 +117,7 @@ class Classic extends Module {
 	public function dubco_create_short_link() {
 		check_ajax_referer( 'dubco_meta_box_nonce', 'nonce' );
 		$post_id     = (int) filter_input( INPUT_POST, 'post_id', FILTER_SANITIZE_NUMBER_INT );
-		$integration = ModuleInitialization::instance()->get_class( 'DubTechnologiesInc\DubTechnologiesInc\Integration' );
+		$integration = ModuleInitialization::instance()->get_class( 'DubTechnologiesInc\Dub\Integration' );
 		$response    = $integration->generate_short_url( $post_id );
 
 		if ( $response['error'] ) {
