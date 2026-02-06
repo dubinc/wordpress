@@ -1,0 +1,38 @@
+# Development files
+/.git
+/.github
+/node_modules
+/vendor/bin
+
+# Build configuration
+/package.json
+/package-lock.json
+/composer.lock
+/ruleset.xml
+/.editorconfig
+/.eslintrc.json
+/.eslintignore
+/.lintstagedrc.json
+/.gitignore
+/.distignore
+
+# Source assets (not built)
+/assets/js
+/assets/css
+
+# Documentation
+/README.md
+
+# Tests and CI
+/.github
+/tests
+/coverage-report
+
+# Logs and temp files
+*.log
+/log
+/tmp
+
+# OS files
+.DS_Store
+Thumbs.db

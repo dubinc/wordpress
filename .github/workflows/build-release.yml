@@ -1,0 +1,86 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Plugin
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          coverage: none
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --optimize-autoloader --no-interaction
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build
+
+      - name: Create build directory
+        run: mkdir -p build/dubinc
+
+      - name: Copy plugin files
+        run: |
+          rsync -rc --exclude-from=".distignore" . build/dubinc/ \
+            --exclude=build \
+            --exclude=.git \
+            --exclude=.github \
+            --exclude=node_modules \
+            --exclude=assets/js \
+            --exclude=assets/css \
+            --exclude=.gitignore \
+            --exclude=.editorconfig \
+            --exclude=.eslintrc.json \
+            --exclude=.eslintignore \
+            --exclude=.lintstagedrc.json \
+            --exclude=ruleset.xml \
+            --exclude=package.json \
+            --exclude=package-lock.json \
+            --exclude=composer.lock \
+            --exclude=README.md
+
+      - name: Create zip file
+        run: |
+          cd build
+          zip -r ../dubinc.zip dubinc
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+        if: startsWith(github.ref, 'refs/tags/')
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: dubinc.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dubinc-plugin
+          path: dubinc.zip
+          retention-days: 30
