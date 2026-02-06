@@ -10,7 +10,6 @@ namespace DubTechnologiesInc\Core;
 
 use DubTechnologiesInc\ModuleInitialization;
 use DubTechnologiesInc\Plugin;
-use DubTechnologiesInc\UpdateChecker;
 use WP_Error;
 use DubTechnologiesInc\Utility;
 
@@ -35,7 +34,7 @@ function setup() {
 	// Hook to allow async or defer on asset loading.
 	add_filter( 'script_loader_tag', $n( 'script_loader_tag' ), 10, 2 );
 
-	do_action( 'tenup_plugin_loaded' );
+	do_action( 'dubco_plugin_loaded' );
 }
 
 /**
@@ -55,7 +54,7 @@ function i18n() {
  * @return void
  */
 function init() {
-	do_action( 'tenup_plugin_before_init' );
+	do_action( 'dubco_plugin_before_init' );
 
 	// If the composer.json isn't found, trigger a warning.
 	if ( ! file_exists( DUBCO_PLUGIN_PATH . 'composer.json' ) ) {

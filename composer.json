@@ -1,10 +1,10 @@
 {
-  "name": "10up/wp-plugin",
+  "name": "dubinc/wordpress-plugin",
   "type": "wordpress-plugin",
   "authors": [
     {
-      "name": "10up",
-      "email": "info@10up.com"
+      "name": "Dub Technologies, Inc.",
+      "email": "support@dub.co"
     }
   ],
   "require": {

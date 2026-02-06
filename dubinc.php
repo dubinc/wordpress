@@ -1,11 +1,13 @@
 <?php
 /**
  * Plugin Name:       Dub - Short Links With Superpowers
+ * Plugin URI:        https://dub.co
  * Description:       Official WordPress integration for Dub Technologies, Inc.
  * Version:           1.0.1
- * Requires at least: 4.9
+ * Requires at least: 5.5
  * Requires PHP:      7.4
  * Author:            Dub Technologies, Inc.
+ * Author URI:        https://dub.co
  * License:           AGPLv3
  * License URI:       https://www.gnu.org/licenses/agpl-3.0.en.html
  * Text Domain:       dubinc
