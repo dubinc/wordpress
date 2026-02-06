@@ -2,7 +2,7 @@
 Contributors: @nicolapeluchetti
 Requires at least: 5.5
 Tested up to: 6.6.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires PHP: 7.4
 License: AGPLv3
 License URI: https://www.gnu.org/licenses/agpl-3.0.en.html
@@ -29,6 +29,9 @@ Features:
    We have a generous [free plan](https://dub.co/pricing) at Dub that you can use to shorten and create up to 25 links a month. For higher limits, upgrade to our [Pro plan](https://dub.co/help/article/pro-plan).
 
 == Changelog ==
+
+= 1.0.1 =
+* Internal, fix potential issue with namespace
 
 = 1.0 =
 * First version of the plugin

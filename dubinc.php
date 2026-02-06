@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Dub - Short Links With Superpowers
  * Description:       Official WordPress integration for Dub Technologies, Inc.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 4.9
  * Requires PHP:      7.4
  * Author:            Dub Technologies, Inc.
@@ -17,7 +17,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // Useful global constants.
-define( 'DUBCO_PLUGIN_VERSION', '0.1.0' );
+define( 'DUBCO_PLUGIN_VERSION', '1.0.1' );
 define( 'DUBCO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'DUBCO_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DUBCO_PLUGIN_INC', DUBCO_PLUGIN_PATH . 'includes/' );
