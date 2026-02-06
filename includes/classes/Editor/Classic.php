@@ -16,7 +16,7 @@ class Classic extends Module {
 	public function dubco_enqueue_scripts() {
 		wp_enqueue_script(
 			'dubco-meta-box',
-			DUBCO_PLUGIN_URL . 'assets/js/admin/dubco-meta-box.js',
+			DUBCO_PLUGIN_URL . 'dist/js/admin.js',
 			[ 'jquery' ],
 			DUBCO_PLUGIN_VERSION,
 			true
