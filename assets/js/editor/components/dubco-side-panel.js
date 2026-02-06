@@ -30,8 +30,7 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 	const [error, setError] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 
-	const { _dubco_short_url, _dubco_short_url_id, _dubco_short_url_error } =
-		metaFields;
+	const { _dubco_short_url, _dubco_short_url_id, _dubco_short_url_error } = metaFields;
 
 	useEffect(() => {
 		if (_dubco_short_url) {
@@ -120,9 +119,7 @@ const MetaBox = ({ postStatus, metaFields, setMetaFields, postId }) => {
 								)}
 							</div>
 							{error && <Notice status="error">{error}</Notice>}
-							<AnalitycsLink
-								shortLink={_dubco_short_url}
-							/>
+							<AnalitycsLink shortLink={_dubco_short_url} />
 						</>
 					)}
 					{!_dubco_short_url && (
