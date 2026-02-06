@@ -61,7 +61,7 @@ window.jQuery(document).ready(function ($) {
 			}
 		} catch (error) {
 			console.error(error);
-			$('#dubco_error').addClass('error').text(error).show();
+			$('#dubco_error').addClass('error').text(error?.message || error).show();
 		} finally {
 			$(this).text(wp.i18n.__('Update', 'dubinc'));
 		}

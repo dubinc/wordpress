@@ -27,7 +27,7 @@ class Links extends Module {
 
 		register_rest_route(
 			'dubco/v1',
-			'/links/(?P<id>[a-zA-Z0-9]+)',
+			'/links/(?P<id>[a-zA-Z0-9_]+)',
 			[
 				'methods'             => WP_REST_Server::EDITABLE,
 				'callback'            => [ $this, 'update_link' ],
@@ -61,7 +61,6 @@ class Links extends Module {
 	}
 
 	public function update_link( $request ) {
-		// Handle PATCH request to update an existing link
 		$id     = $request->get_param( 'id' );
 		$params = $request->get_params();
 
@@ -86,7 +85,6 @@ class Links extends Module {
 	}
 
 	public function permissions_check( $request ) {
-		// Check if the user has permission to perform the action
 		return current_user_can( 'edit_posts' );
 	}
 }

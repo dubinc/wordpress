@@ -1,33 +1,33 @@
 {
-  "name": "dubinc",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "npm run watch",
-    "watch": "10up-toolkit watch --port=5010 --hot",
-    "build": "10up-toolkit build",
-    "format-js": "10up-toolkit format-js",
-    "lint-js": "10up-toolkit lint-js",
-    "lint-style": "10up-toolkit lint-style",
-    "lint-php": "./vendor/bin/phpcs ./includes --standard=ruleset.xml",
-    "fix-php": "./vendor/bin/phpcbf ./includes --standard=ruleset.xml",
-    "test": "10up-toolkit test-unit-jest",
-    "clean-dist": "rm -rf ./dist"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "devDependencies": {
-    "10up-toolkit": "^6.2.0"
-  },
-  "dependencies": {
-    "prop-types": "^15.7.2"
-  },
-  "10up-toolkit": {
-    "entry": {
-      "admin": "./assets/js/admin/admin.js",
-      "frontend": "./assets/js/frontend/frontend.js",
-      "shared": "./assets/js/shared/shared.js",
-      "editor": "./assets/js/editor/index.js"
+    "name": "dubinc",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "npm run watch",
+        "watch": "10up-toolkit watch --port=5010",
+        "build": "10up-toolkit build",
+        "format-js": "10up-toolkit format-js",
+        "lint-js": "10up-toolkit lint-js",
+        "lint-style": "10up-toolkit lint-style",
+        "lint-php": "./vendor/bin/phpcs ./includes --standard=ruleset.xml",
+        "fix-php": "./vendor/bin/phpcbf ./includes --standard=ruleset.xml",
+        "test": "10up-toolkit test-unit-jest",
+        "clean-dist": "rm -rf ./dist"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "devDependencies": {
+        "10up-toolkit": "^6.2.0"
+    },
+    "dependencies": {
+        "prop-types": "^15.7.2"
+    },
+    "10up-toolkit": {
+        "entry": {
+            "admin": "./assets/js/admin/admin.js",
+            "frontend": "./assets/js/frontend/frontend.js",
+            "shared": "./assets/js/shared/shared.js",
+            "editor": "./assets/js/editor/index.js"
+        }
     }
-  }
 }
