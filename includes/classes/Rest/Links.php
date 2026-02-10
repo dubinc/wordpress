@@ -34,6 +34,16 @@ class Links extends Module {
 				'permission_callback' => [ $this, 'permissions_check' ],
 			]
 		);
+
+		register_rest_route(
+			'dubco/v1',
+			'/links/info',
+			[
+				'methods'             => WP_REST_Server::READABLE,
+				'callback'            => [ $this, 'get_link_info' ],
+				'permission_callback' => [ $this, 'permissions_check' ],
+			]
+		);
 	}
 
 	public function create_link( $request ) {
@@ -82,6 +92,22 @@ class Links extends Module {
 		Integration::update_meta_from_response( $post_id, $response );
 
 		return new \WP_REST_Response( $response['body'], $response['status_code'] );
+	}
+
+	public function get_link_info( $request ) {
+		$params  = $request->get_params();
+		$post_id = isset( $params['post_id'] ) ? (int) $params['post_id'] : 0;
+		$link_id = $params['linkId'] ?? $params['link_id'] ?? null;
+		$domain  = $params['domain'] ?? null;
+		$key     = $params['key'] ?? null;
+
+		$result = Integration::retrieve_link_info( $post_id, $link_id, $domain, $key );
+
+		if ( isset( $result['error'] ) ) {
+			return new \WP_REST_Response( $result['error'], $result['status_code'] ?? 500 );
+		}
+
+		return new \WP_REST_Response( $result['body'], $result['status_code'] ?? 200 );
 	}
 
 	public function permissions_check( $request ) {

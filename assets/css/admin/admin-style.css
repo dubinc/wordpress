@@ -14,6 +14,43 @@
 		height: 32px;
 	}
 }
+.dubco-link-metrics-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	flex-direction: column;
+}
+
+.dubco-link-metrics {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	padding: 6px 10px;
+	border: 1px solid #e2e4e7;
+	border-radius: 999px;
+	background: #f6f7f7;
+	margin-bottom: 10px;
+}
+
+.dubco-link-metric {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: #1d2327;
+}
+
+.dubco-link-metric-icon {
+	width: 16px;
+	height: 16px;
+	display: block;
+}
+
+.dubco-link-metric-value {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 16px;
+}
 
 .dubco-creat-link {
 
