@@ -18,8 +18,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 8px;
 	flex-direction: column;
+    margin-top: 16px;
 }
 
 .dubco-link-metrics {
@@ -28,7 +28,7 @@
 	gap: 12px;
 	padding: 6px 10px;
 	border: 1px solid #e2e4e7;
-	border-radius: 999px;
+	border-radius: 8px;
 	background: #f6f7f7;
 	margin-bottom: 10px;
 }
