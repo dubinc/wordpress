@@ -1,1 +1,63 @@
-.dubco-short-link{align-items:flex-end;display:flex;justify-content:space-between;margin-bottom:10px}.dubco-short-link button{height:32px;margin-left:10px}.dubco-creat-link button{margin-bottom:10px}.settings_page_dubco-settings .form-table th{width:25%}.settings_page_dubco-settings .dubinc-checkbox{margin-bottom:8px}
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./assets/css/admin/admin-style.css ***!
+  \**************************************************************************************************************************************************************************************/
+/**
+ * DubTechnologiesInc - Admin only styles
+ * https://project-website.tld
+ *
+ */
+.dubco-short-link {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+.dubco-short-link button {
+		margin-left: 10px;
+		height: 32px;
+	}
+.dubco-link-metrics-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	flex-direction: column;
+}
+.dubco-link-metrics {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	padding: 6px 10px;
+	border: 1px solid #e2e4e7;
+	border-radius: 999px;
+	background: #f6f7f7;
+	margin-bottom: 10px;
+}
+.dubco-link-metric {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: #1d2327;
+}
+.dubco-link-metric-icon {
+	width: 16px;
+	height: 16px;
+	display: block;
+}
+.dubco-link-metric-value {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 16px;
+}
+.dubco-creat-link button {
+		margin-bottom: 10px;
+	}
+.settings_page_dubco-settings .form-table th {
+		width: 25%;
+	}
+.settings_page_dubco-settings .dubinc-checkbox {
+		margin-bottom: 8px;
+	}
+
+
+/*# sourceMappingURL=admin.css.map*/

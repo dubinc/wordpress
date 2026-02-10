@@ -24,6 +24,13 @@ class ApiClient {
 
 	public function request( $method, $endpoint, $data = [] ) {
 		$url     = $this->base_url . $endpoint;
+		$method  = strtoupper( $method );
+
+		if ( 'GET' === $method && ! empty( $data ) ) {
+			$query = http_build_query( $data );
+			$url  .= ( false === strpos( $url, '?' ) ? '?' : '&' ) . $query;
+			$data  = [];
+		}
 		$headers = [
 			'Authorization' => 'Bearer ' . $this->api_key,
 			'Content-Type'  => 'application/json',
@@ -33,14 +40,16 @@ class ApiClient {
 	}
 
 	private function make_request( $method, $url, $headers, $data ) {
-		$response = wp_remote_request(
-			$url,
-			[
-				'method'  => $method,
-				'headers' => $headers,
-				'body'    => wp_json_encode( $data ),
-			]
-		);
+		$args = [
+			'method'  => $method,
+			'headers' => $headers,
+		];
+
+		if ( ! empty( $data ) ) {
+			$args['body'] = wp_json_encode( $data );
+		}
+
+		$response = wp_remote_request( $url, $args );
 
 		if ( is_wp_error( $response ) ) {
 			return [
