@@ -31,6 +31,7 @@ Features:
 == Changelog ==
 
 = 1.0.1 =
+* New: Added clicks, leads and sales to the Dub metabox
 * Internal, fix potential issue with namespace
 
 = 1.0 =
